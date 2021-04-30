@@ -1,0 +1,45 @@
+<idea-plugin>
+  <id>com.wangyuan.plugin.protoc</id>
+  <name>protoc</name>
+  <version>1.0</version>
+  <vendor email="18568263560@163.com" url="http://www.wangyuan.com">网元圣唐</vendor>
+
+  <description>proto file to java file</description>
+
+  <change-notes><![CDATA[
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>
+    ]]>
+  </change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="145.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <actions>
+    <action id="ProtocAction" class="action.ProtocAction" text="Protoc" description="右键Action"  >
+      <add-to-group group-id="ProjectViewPopupMenu" anchor="after" relative-to-action="ReplaceInPath"/>
+    </action>
+
+    <!--下面的group是分组，分组需要有一个唯一的id标识，text用来控制分组出现在IDEA时呈现的文案，description是描述，不会展现出来，简单描述下分组就行-->
+    <group id="PluginTest" text="Protoc" description="设置protoc.exe路径和导出路径">
+      <!--add-to-group控制把该分组加到IDEA里，group-id用来描述加在哪个位置，MainMenu表示加在IDEA上方的主菜单栏里，
+      anchor表示顺序，last表示最后一个，所以下面的配置可以描述为：将该插件加到IDEA上方主菜单栏的最后一位-->
+      <add-to-group group-id="MainMenu" anchor="last"/>
+      <!--这个用来指定一个分组下的触发动作，同样的需要一个id，自定义；class就是用来处理这个动作的逻辑类，具体的插件逻辑都会写到对应的action类里，text用来控制文案，description为描述-->
+      <action id="FromAction"
+        class="action.FromAction"
+        text="setting" description="表单测试描述"/>
+    </group>
+  </actions>
+
+</idea-plugin>
