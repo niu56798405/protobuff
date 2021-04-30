@@ -1,5 +1,5 @@
 # protobuff
-protobuff plugin
+idea protobuff plugin
 
 
 <p>idea&nbsp; 使用 protobuff 之前项目中 使用 maven 编译的方式 倒是很简单，</p>
