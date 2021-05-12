@@ -1,14 +1,46 @@
 <idea-plugin>
-  <id>com.wangyuan.plugin.protoc</id>
-  <name>protoc</name>
+  <id>com.github.plugin.protoc</id>
+  <name>protocol buff</name>
   <version>1.0</version>
-  <vendor email="18568263560@163.com" url="http://www.wangyuan.com">网元圣唐</vendor>
+  <vendor email="18568263560@163.com" url="https://github.com/niu56798405/protobuff">niuhaitao</vendor>
 
-  <description>proto file to java file</description>
+  <description><![CDATA[
+                  protocol buff plugin <br>
+                  cast proto file to java file<br>
+                  source code:<br>
+                  After installing the plug-in, click "Protoc" in the main navigation to set your protoc.exe directory<br>
+                  and set out java files directory
+
+                  <p><a href="https://github.com/niu56798405/protobuff" target="_blank">https://github.com/niu56798405/protobuff</a></p><br>
+                  if you finish setting you can chose your proto files and use mouse clieck right button then chose “Protoc” <br>
+                  finally you can see your proto file cast to java file success!!!
+                  <p><img src="https://img2020.cnblogs.com/blog/2301902/202102/2301902-20210226110416768-1852821290.png" alt="" loading="lazy" /></p>
+
+
+               ]]>
+  </description>
 
   <change-notes><![CDATA[
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>
+     # protobuff
+idea protobuff plugin
+
+<p>idea&nbsp; 使用 protobuff 之前项目中 使用 maven 编译的方式 倒是很简单，</p>
+<p>不过却有一个问题让我很难受。这个问题就是很慢 ，因为 我可能只改了一个 proto文件但是 maven转换为 java文件时 却要把所有的 proto文件都重新转换一次，</p>
+<p>每次都必须等很长的时间，极大的影响了开发的效率。所以自己就写了 一个小插件 解决这个问题</p>
+<p>&nbsp;</p>
+<p>装好插件后 只需要 设置路径 就可以在proto 文件上 右键 点击 protoc 就可以转为 java 文件了</p>
+<p>&nbsp;</p>
+<p><img src="https://img2020.cnblogs.com/blog/2301902/202102/2301902-20210226110416768-1852821290.png" alt="" loading="lazy" /></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><img src="https://img2020.cnblogs.com/blog/2301902/202102/2301902-20210226110427473-76272627.png" alt="" loading="lazy" /></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>插件文件：</p>
+<p><a href="//files.cnblogs.com/files/blogs/667780/protobuff_plugin.rar" target="_blank">下载插件</a></p>
+<p>&nbsp;</p>
+
     ]]>
   </change-notes>
 
@@ -24,9 +56,10 @@
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
   </extensions>
+  <depends>com.intellij.modules.lang</depends>
 
   <actions>
-    <action id="ProtocAction" class="action.ProtocAction" text="Protoc" description="右键Action"  >
+    <action id="ProtocAction" class="action.ProtocAction" text="Protoc" description="右键Action">
       <add-to-group group-id="ProjectViewPopupMenu" anchor="after" relative-to-action="ReplaceInPath"/>
     </action>
 
@@ -37,8 +70,8 @@
       <add-to-group group-id="MainMenu" anchor="last"/>
       <!--这个用来指定一个分组下的触发动作，同样的需要一个id，自定义；class就是用来处理这个动作的逻辑类，具体的插件逻辑都会写到对应的action类里，text用来控制文案，description为描述-->
       <action id="FromAction"
-        class="action.FromAction"
-        text="setting" description="表单测试描述"/>
+              class="action.FromAction"
+              text="setting" description="表单测试描述"/>
     </group>
   </actions>
 
