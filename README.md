@@ -1,6 +1,8 @@
 # protobuff
 idea protobuff plugin
 
+genproto to java
+
 
 <p>idea&nbsp; 使用 protobuff 之前项目中 使用 maven 编译的方式 倒是很简单，</p>
 <p>不过却有一个问题让我很难受。这个问题就是很慢 ，因为 我可能只改了一个 proto文件但是 maven转换为 java文件时 却要把所有的 proto文件都重新转换一次，</p>
